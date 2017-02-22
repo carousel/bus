@@ -1,7 +1,7 @@
 {
     "name": "carousel/bus",
     "type": "library",
-    "description": ":package_description",
+    "description": "Command bus pattern implementation for PHP projects",
     "keywords": [
         "command bus",
         "bus"
