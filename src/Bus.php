@@ -13,8 +13,8 @@ class Bus implements BusInterface
     *
     * @return void
     */
-    public function handle($request,$command)
+    public function handle($request, $command)
     {
-        
+        $command->execute($request)        ;
     }
 }
