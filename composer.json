@@ -1,0 +1,33 @@
+{
+    "name": "carousel/bus",
+    "type": "library",
+    "description": ":package_description",
+    "keywords": [
+        "command bus",
+        "bus"
+    ],
+    "homepage": "https://github.com/carousel/bus",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Miroslav Trninic",
+            "email": "miroslav.trninic@gmail.com",
+            "homepage": "http://larabal.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Carousel\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
+
