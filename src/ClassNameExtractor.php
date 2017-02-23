@@ -11,6 +11,7 @@ class ClassNameExtractor
     public function extract($command)
     {
         $className = get_class($command);
+        $className = str_replace('Commands','Handlers',$className);
         return $className;
     }
 }
