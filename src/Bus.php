@@ -2,9 +2,21 @@
 namespace Carousel;
 
 use Carousel\BusInterface;
+use Carousel\ClassNameExtractor;
 
 class Bus implements BusInterface
 {
+    public $classNameExtractor;
+    /**
+    * Inject class name extractor
+    *
+    * $param extractor
+    */
+    public function __construct(ClassNameExtractor $classNameExtractor)
+    {
+        $this->classNameExtractor = $classNameExtractor;
+    }
+    
     /**
     * Main handle method will connect command and handler (in its simplest implementationj)
     *
@@ -15,6 +27,8 @@ class Bus implements BusInterface
     */
     public function handle($request, $command)
     {
-        $command->execute($request)        ;
+        $className = $this->classNameExtractor->extract($command) . 'Handler';
+        $handler = new $className;
+        $command->execute($request, $handler)        ;
     }
 }

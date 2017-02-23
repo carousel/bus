@@ -2,6 +2,7 @@
 namespace Tests;
 
 use Carousel\Bus;
+use Carousel\ClassNameExtractor;;
 use Carousel\BusInterface;
 use Tests\Command;
 use Tests\CommandHandler;
@@ -14,7 +15,7 @@ class ExampleTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->command = new Command(new CommandHandler);
-        $this->bus = new Bus;
+        $this->bus = new Bus(new ClassNameExtractor);
     }
     /**
      * Test that bus implements bus interface
