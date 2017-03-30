@@ -29,6 +29,6 @@ class Bus implements BusInterface
     {
         $className = $this->classNameExtractor->extract($command) . 'Handler';
         $handler = new $className;
-        $command->execute($request, $handler)        ;
+        $command->execute($request, $handler);
     }
 }
