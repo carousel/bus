@@ -8,10 +8,15 @@ class ClassNameExtractor
     *
     * @param command instance
     */
-    public function extract($command)
+    public function extract($command, $namespace = null)
     {
-        $className = get_class($command);
-        $className = str_replace('Commands','Handlers',$className);
-        return $className;
+        if ($namespace != null) {
+            $className = (new \ReflectionClass($command))->getShortName();
+            $realClassName = $namespace . '\\' . $className;
+            return $realClassName;
+        } else {
+            $className = (new \ReflectionClass($command))->getShortName();
+            return $className;
+        }
     }
 }
