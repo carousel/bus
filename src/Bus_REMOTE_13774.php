@@ -30,11 +30,10 @@ class Bus implements BusInterface
         if ($namespace != null) {
             $className = $this->classNameExtractor->extract($command, $namespace) . 'Handler';
             $handler = new $className;
-            $command->execute($request, $handler);
-        }else{
-            $className = $this->classNameExtractor->extract($command) . 'Handler';
-            $handler = new $className;
-            $command->execute($request, $handler);
-        }        
+            $command->execute($request, $handler)        ;
+        }
+        $className = $this->classNameExtractor->extract($command) . 'Handler';
+        $handler = new $className;
+        $command->execute($request, $handler)        ;
     }
 }

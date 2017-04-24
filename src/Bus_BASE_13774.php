@@ -25,16 +25,10 @@ class Bus implements BusInterface
     *
     * @return void
     */
-    public function handle($request, $command, $namespace = null)
+    public function handle($request, $command)
     {
-        if ($namespace != null) {
-            $className = $this->classNameExtractor->extract($command, $namespace) . 'Handler';
-            $handler = new $className;
-            $command->execute($request, $handler);
-        }else{
-            $className = $this->classNameExtractor->extract($command) . 'Handler';
-            $handler = new $className;
-            $command->execute($request, $handler);
-        }        
+        $className = $this->classNameExtractor->extract($command) . 'Handler';
+        $handler = new $className;
+        $command->execute($request, $handler)        ;
     }
 }
