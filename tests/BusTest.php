@@ -7,7 +7,7 @@ use Carousel\BusInterface;
 use Tests\Command;
 use Tests\CommandHandler;
 
-class ExampleTest extends \PHPUnit_Framework_TestCase
+class ExampleTest extends \PHPUnit\Framework\TestCase
 {
     /**
     * Set up bus instance
