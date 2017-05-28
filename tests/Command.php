@@ -1,7 +1,8 @@
 <?php
-namespace Tests;
 
-class Command extends BaseCommand
+namespace Test;
+
+class Command
 {
     
     /**

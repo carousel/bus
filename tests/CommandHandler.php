@@ -1,5 +1,6 @@
 <?php
-namespace Tests;
+
+namespace Test;
 
 class CommandHandler
 {

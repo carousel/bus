@@ -1,22 +1,24 @@
 <?php
-namespace Tests;
 
 use Carousel\Bus;
-use Carousel\ClassNameExtractor;;
-use Carousel\BusInterface;
-use Tests\Command;
-use Tests\CommandHandler;
+use Carousel\ClassNameExtractor;
 
-class ExampleTest extends \PHPUnit_Framework_TestCase
+;
+use Carousel\BusInterface;
+use Test\Command;
+use Test\CommandHandler;
+
+class ExampleTest extends \PHPUnit\Framework\TestCase
 {
     /**
-    * Set up bus instance
-    */
+     * Set up bus instance
+     */
     public function setUp()
     {
         $this->command = new Command(new CommandHandler);
         $this->bus = new Bus(new ClassNameExtractor);
     }
+
     /**
      * Test that bus implements bus interface
      *
@@ -26,6 +28,7 @@ class ExampleTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertTrue($this->bus instanceof BusInterface);
     }
+
     /**
      * Test that command is executed via bus
      *
@@ -34,7 +37,7 @@ class ExampleTest extends \PHPUnit_Framework_TestCase
     public function commandIsExecutedAndDispatchedToHandler()
     {
         $filename = 'filename.txt';
-        $this->bus->handle($filename, $this->command);
+        $this->bus->handle($filename, $this->command, 'Test');
         $this->assertTrue(file_exists($filename));
         unlink($filename);
         $this->assertNotTrue(file_exists($filename));
