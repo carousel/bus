@@ -3,8 +3,32 @@
 use Carousel\Bus;
 use Carousel\ClassNameExtractor;
 use Carousel\BusInterface;
-use Test\WriteToFileCommand;
-use Test\WriteToFileCommandHandler;
+
+class WriteToFileCommand
+{
+    
+    /**
+    * Execute command on handler
+    *
+    * @param request
+    */
+    public function execute($request, $handler)
+    {
+        $handler->writeToFile($request);
+    }
+}
+
+class WriteToFileCommandHandler
+{
+    /**
+    * Action on handler (business logic)
+    */
+    public function writeToFile($request)
+    {
+        $contents = 'some file contents';
+        file_put_contents($request['file'], $contents);
+    }
+}
 
 class ExampleTest extends \PHPUnit\Framework\TestCase
 {
