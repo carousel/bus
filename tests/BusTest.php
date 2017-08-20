@@ -3,6 +3,8 @@
 use Carousel\Bus;
 use Carousel\ClassNameExtractor;
 use Carousel\BusInterface;
+use Test\WriteToFileCommand;
+use Test\WriteToFileCommandHandler;
 
 class ExampleTest extends \PHPUnit\Framework\TestCase
 {

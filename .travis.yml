@@ -5,6 +5,7 @@ php:
 
 before_script:
   - composer update
+  - composer dump-autoload
 
 script: phpunit --configuration phpunit.xml --coverage-text
 
