@@ -1,12 +1,10 @@
-<?php
+<?php namespace Test;
 
 use Carousel\Bus;
 use Carousel\ClassNameExtractor;
-
-;
 use Carousel\BusInterface;
-use Test\Command;
-use Test\CommandHandler;
+use Test\WriteToFileCommand;
+use Test\WriteToFileCommandHandler;
 
 class ExampleTest extends \PHPUnit\Framework\TestCase
 {
@@ -15,8 +13,9 @@ class ExampleTest extends \PHPUnit\Framework\TestCase
      */
     public function setUp()
     {
-        $this->command = new Command(new CommandHandler);
+        $this->command = new WriteToFileCommand(new WriteToFileCommandHandler);
         $this->bus = new Bus(new ClassNameExtractor);
+        $this->request = [];
     }
 
     /**
@@ -36,10 +35,10 @@ class ExampleTest extends \PHPUnit\Framework\TestCase
      */
     public function commandIsExecutedAndDispatchedToHandler()
     {
-        $filename = 'filename.txt';
-        $this->bus->handle($filename, $this->command, 'Test');
-        $this->assertTrue(file_exists($filename));
-        unlink($filename);
-        $this->assertNotTrue(file_exists($filename));
+        $this->request['file'] = 'filename.txt';
+        $this->bus->handle($this->request, $this->command, 'Test');
+        $this->assertTrue(file_exists($this->request['file']));
+        unlink($this->request['file']);
+        $this->assertNotTrue(file_exists($this->request['file']));
     }
 }
