@@ -1,4 +1,4 @@
-<?php namespace Test;
+<?php 
 
 use Carousel\Bus;
 use Carousel\ClassNameExtractor;
