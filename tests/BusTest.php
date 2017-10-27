@@ -4,7 +4,21 @@ use Carousel\Bus;
 use Carousel\ClassNameExtractor;
 use Carousel\BusInterface;
 
-class WriteToFileCommand
+abstract class WriteToFile
+{
+    /**
+    *
+    */
+    public function __construct()
+    {
+        $this->handler = new WriteToFileCommandHandler;
+    }
+
+    abstract public function execute($request);
+}
+    
+
+class WriteToFileCommand extends WriteToFile
 {
     
     /**
@@ -12,9 +26,9 @@ class WriteToFileCommand
     *
     * @param request
     */
-    public function execute($request, $handler)
+    public function execute($request)
     {
-        $handler->writeToFile($request);
+        $this->handler->writeToFile($request);
     }
 }
 
@@ -37,7 +51,7 @@ class ExampleTest extends \PHPUnit\Framework\TestCase
      */
     public function setUp()
     {
-        $this->command = new WriteToFileCommand(new WriteToFileCommandHandler);
+        $this->command = new WriteToFileCommand();
         $this->bus = new Bus(new ClassNameExtractor);
         $this->request = [];
     }
