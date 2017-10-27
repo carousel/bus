@@ -9,21 +9,34 @@ class LoginCommandHandler
     public function login($request)
     {
         if ($request == 42) {
-            echo "You are now logged in!";
+            echo "You are now logged in!" . PHP_EOL;
         } else {
-            echo "You don't have permission to log in!";
+            echo "You don't have permission to log in!" . PHP_EOL;
         }
     }
 }
 
-class LoginCommand
+abstract class Login
 {
-    public function execute($request, $handler)
+    /**
+    *
+    */
+    public function __construct()
     {
-        $handler->login($request);
+        $this->handler = new LoginCommandHandler;
+    }
+
+    abstract public function execute($request);
+}
+
+class LoginCommand extends Login
+{
+    public function execute($request)
+    {
+        $this->handler->login($request);
     }
 }
 
-$user_id = 42;
+$userId = 42;
 $bus = new Bus(new ClassNameExtractor);
-$bus->handle($user_id, new LoginCommand);
+$bus->handle($userId, new LoginCommand, '');
