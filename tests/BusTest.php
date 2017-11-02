@@ -1,7 +1,7 @@
 <?php 
 
 use Carousel\Bus;
-use Carousel\ClassNameExtractor;
+use Carousel\ClassMapper;
 use Carousel\BusInterface;
 
 abstract class WriteToFile
@@ -52,7 +52,7 @@ class ExampleTest extends \PHPUnit\Framework\TestCase
     public function setUp()
     {
         $this->command = new WriteToFileCommand();
-        $this->bus = new Bus(new ClassNameExtractor);
+        $this->bus = new Bus(new ClassMapper);
         $this->request = [];
     }
 

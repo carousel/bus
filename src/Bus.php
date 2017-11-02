@@ -3,7 +3,7 @@
 namespace Carousel;
 
 use Carousel\BusInterface;
-use Carousel\ClassNameExtractor;
+use Carousel\ClassMapper;
 
 class Bus implements BusInterface
 {
@@ -14,9 +14,9 @@ class Bus implements BusInterface
      *
      * $param extractor
      */
-    public function __construct(ClassNameExtractor $classNameExtractor)
+    public function __construct(ClassMapper $classMapper)
     {
-        $this->classNameExtractor = $classNameExtractor;
+        $this->classMapper = $classMapper;
     }
 
     /**
@@ -27,9 +27,9 @@ class Bus implements BusInterface
      *
      * @return void
      */
-    public function handle($request, $command, $namespace)
+    public function handle($request, $command)
     {
-        $className = $this->classNameExtractor->extract($command, $namespace) . 'Handler';
+        $className = $this->classMapper->getHandler($command);
         $handler = new $className;
         $command->execute($request, $handler);
     }
