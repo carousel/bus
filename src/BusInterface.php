@@ -12,5 +12,5 @@ interface BusInterface
     *
     * @return void
     */
-    public function handle($request, $command, $namespace);
+    public function handle($request, $command);
 }

@@ -2,7 +2,7 @@
 require "vendor/autoload.php";
 
 use Carousel\Bus;
-use Carousel\ClassNameExtractor;
+use Carousel\ClassMapper;
 
 class LoginCommandHandler
 {
@@ -38,5 +38,5 @@ class LoginCommand extends Login
 }
 
 $userId = 42;
-$bus = new Bus(new ClassNameExtractor);
-$bus->handle($userId, new LoginCommand, '');
+$bus = new Bus(new ClassMapper);
+$bus->handle($userId, new LoginCommand);
