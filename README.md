@@ -1,5 +1,6 @@
-##Command bus design pattern implementation for PHP projects
-*   this pattern allows separation between two independent layers of application - framework (controller)  and domain in typical MVC 
-*   at this point, it is limited to one-to-one dispatching between command and handler in the bus. 
+# Simple command bus for PHP projects
+
+*   wrapper around command pattern and allows separation between two independent layers (UI/controller and domain logic)
+
 
 miroslav.trninic@gmail.com
