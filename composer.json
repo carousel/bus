@@ -6,7 +6,7 @@
         "command bus",
         "bus"
     ],
-    "minimun-stability": "dev",
+    "minimum-stability": "dev",
     "homepage": "https://github.com/carousel/bus",
     "license": "MIT",
     "require-dev": {
