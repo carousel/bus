@@ -38,5 +38,5 @@ class LoginCommand extends Login
 }
 
 $userId = 42;
-$bus = new Bus(new ClassMapper);
+$bus = new Bus;
 $bus->handle($userId, new LoginCommand);

@@ -14,9 +14,9 @@ class Bus implements BusInterface
      *
      * $param extractor
      */
-    public function __construct(ClassMapper $classMapper)
+    public function __construct()
     {
-        $this->classMapper = $classMapper;
+        $this->classMapper = new ClassMapper;
     }
 
     /**
