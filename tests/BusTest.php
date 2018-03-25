@@ -1,8 +1,8 @@
 <?php 
 
-use Carousel\Bus;
-use Carousel\ClassMapper;
-use Carousel\BusInterface;
+use Carousel\Bus\Bus;
+use Carousel\Bus\ClassMapper;
+use Carousel\Bus\BusInterface;
 
 abstract class WriteToFile
 {

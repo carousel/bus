@@ -1,6 +1,6 @@
 <?php
 
-namespace Carousel;
+namespace Carousel\Bus;
 
 class ClassMapper
 {
