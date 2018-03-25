@@ -1,13 +1,13 @@
 <?php
 
-namespace Carousel;
+namespace Carousel\Bus;
 
-use Carousel\BusInterface;
-use Carousel\ClassMapper;
+use Carousel\Bus\BusInterface;
+use Carousel\Bus\ClassMapper;
 
 class Bus implements BusInterface
 {
-    public $classNameExtractor;
+    public $classMapper;
 
     /**
      * Inject class name extractor

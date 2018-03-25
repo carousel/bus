@@ -1,5 +1,6 @@
 <?php
-namespace Carousel;
+
+namespace Carousel\Bus;
 
 interface BusInterface
 {

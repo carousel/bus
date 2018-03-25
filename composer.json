@@ -10,19 +10,19 @@
     "homepage": "https://github.com/carousel/bus",
     "license": "MIT",
     "require-dev": {
-        "phpunit/phpunit": "6.1.4"
+        "phpunit/phpunit": "7.1"
     },
     "authors": [
         {
             "name": "Miroslav Trninic",
             "email": "miroslav.trninic@gmail.com",
-            "homepage": "http://larabal.com",
+            "homepage": "http://antitask.com",
             "role": "Developer"
         }
     ],
     "autoload": {
         "psr-4": {
-            "Carousel\\": "src"
+            "Carousel\\Bus\\": "src"
         }
     },
     "autoload-dev": {
