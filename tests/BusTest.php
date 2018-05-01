@@ -76,7 +76,7 @@ class ExampleTest extends \PHPUnit\Framework\TestCase
         $this->request['file'] = 'filename.txt';
         $this->bus->handle($this->request, $this->command, 'Test');
         $this->assertTrue(file_exists($this->request['file']));
-        unlink($this->request['file']);
-        $this->assertNotTrue(file_exists($this->request['file']));
+        //unlink($this->request['file']);
+        //$this->assertNotTrue(file_exists($this->request['file']));
     }
 }
